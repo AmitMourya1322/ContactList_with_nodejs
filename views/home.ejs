@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>Home Page is Running</h1>
+    <% for (let i of contact) { %>
+        <ul class="main">
+            
+            <li class="item">
+               <p><%= i.name %></p> 
+              <p><%= i.phone %></p>  
+            </li>
+   
+        <a href="/delete-contact/?id=<%= i._id %>"><button>delete</button></a>
+        </ul>
+
+   <% } %>
+   <!-- <% for (let i of contact){ %>
+   <% if(i.age>8){ %>
+        <ul>
+            <li>
+                <%= i.name %>
+                <%= i.phone %>
+            </li>
+        </ul>
+    <% } %>
+
+   <% } %> -->
+   <form action="/createContact" method="POST">
+    <input type="text" placeholder="name" required name="name">
+    <input type="text" name="phone" placeholder="phone" required>
+    <button type="submit">Submit</button>
+   </form>
+</body>
+</html>
